@@ -20,7 +20,7 @@ export function LoginPage() {
     
     try {
       console.log('[LoginPage] Attempting login with phone:', phone_number);
-      const response = await login({ phone_number, password });
+      const response = await login({ phone_number: phone_number.replace('+', ''), password });
       console.log('[LoginPage] Login successful, got token');
       
       // Use the auth context to set the user

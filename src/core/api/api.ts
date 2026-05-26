@@ -8,18 +8,18 @@ import { refreshToken } from "./auth";
 import { useErrorStore, parseErrorMessage } from "../store/errorStore";
 
 // Constants
-
-const getBaseURL = (): string => {
-  const hostname = window.location.hostname;
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'https://test2.smart-sawda.uz/api/v1/';
-  }
-  return `https://${hostname}/api/v1/`;
-};
+//
+// const getBaseURL = (): string => {
+//   const hostname = window.location.hostname;
+//   if (hostname === 'localhost' || hostname === '127.0.0.1') {
+//     return 'https:smart.abata.uz/api/v2/';
+//   }
+//   return `https://${hostname}/api/v2/`;
+// };
 
 // Create API instance
 const api: AxiosInstance = axios.create({
-  baseURL: getBaseURL(),
+  baseURL: 'https:smart.abata.uz/api/v2/',
   headers: {
     "Content-Type": "application/json",
   },
@@ -88,6 +88,6 @@ export default api;
 
 // Currency rates
 export const fetchCurrencyRates = async () => {
-  const response = await api.get("/currency/rates");
+  const response = await api.get("/exchange-rates/");
   return response.data;
 };

@@ -442,7 +442,7 @@ export default function StocksPage() {
       accessorKey: "total_price_in_currency",
       cell: (row: Stock) =>
           row.total_price_in_currency
-              ? `${row.total_price_in_currency} ${row.currency?.short_name || "UZS"}`
+              ? `${row.total_price_in_currency} ${row.currency?.symbol || "UZS"}`
               : "-",
     },
 
@@ -459,7 +459,7 @@ export default function StocksPage() {
       accessorKey: "price_per_unit_currency",
       cell: (row: Stock) =>
           row.price_per_unit_currency
-              ? `${Number(row.price_per_unit_currency).toFixed(2)} ${row.currency?.short_name || "UZS"}`
+              ? `${Number(row.price_per_unit_currency).toFixed(2)} ${row.currency?.symbol || "UZS"}`
               : "-",
     },
     {
@@ -475,7 +475,7 @@ export default function StocksPage() {
       accessorKey: "base_unit_in_currency",
       cell: (row: Stock) =>
           row.base_unit_in_currency
-              ? `${Number(row.base_unit_in_currency).toFixed(2)} ${row.currency?.short_name || "UZS"}`
+              ? `${Number(row.base_unit_in_currency).toFixed(2)} ${row.currency?.symbol || "UZS"}`
               : "-",
     },
     {

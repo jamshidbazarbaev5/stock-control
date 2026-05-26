@@ -76,8 +76,7 @@ export interface Stock {
   currency?: {
     id: number;
     name: string;
-    short_name: string;
-    is_base: boolean;
+    symbol: string;
   } | null;
   supplier?: {
     id: number;
@@ -254,8 +253,7 @@ export interface StockCalculationResponse {
   currency?: {
     id: number;
     name: string;
-    short_name: string;
-    is_base: boolean;
+    symbol: string;
   };
   supplier?: {
     id: number;
@@ -478,8 +476,7 @@ export interface StockHistoryData {
   currency: {
     id: number;
     name: string;
-    short_name: string;
-    is_base: boolean;
+    symbol: string;
   };
   purchase_unit: {
     id: number;

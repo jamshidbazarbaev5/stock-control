@@ -303,9 +303,13 @@ export default function EditStockEntry() {
   const useSupplierBalance = commonForm.watch("use_supplier_balance");
   const supplierValue = commonForm.watch("supplier");
   interface CurrencyRate {
+    id: number;
     created_at: string;
     rate: string;
-    currency_detail: { id: number; name: string; short_name: string; is_base: boolean };
+    from_currency: number;
+    from_code: string;
+    to_currency: number;
+    to_code: string;
   }
   const { data: currencyRates } = useQuery<CurrencyRate[]>({
     queryKey: ["currency-rates"],
@@ -2431,7 +2435,7 @@ export default function EditStockEntry() {
                                           key={currency.id}
                                           value={String(currency.id)}
                                       >
-                                        {currency.name} ({currency.short_name})
+                                        {currency.name} ({currency.symbol})
                                       </SelectItem>
                                   ))}
                                 </SelectContent>

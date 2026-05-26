@@ -1,17 +1,17 @@
 import { createResourceApiHooks } from '../helpers/createResourceApi';
 
-// Types
 export interface Currency {
   id?: number;
   name: string;
-  short_name: string;
+  code: string;
+  symbol: string;
   is_base: boolean;
+  decimal_places?: number;
+  is_active?: boolean;
 }
 
-// API endpoints
-const CURRENCY_URL = 'currency/currencies/';
+const CURRENCY_URL = 'currencies/';
 
-// Create currency API hooks using the factory function
 export const {
   useGetResources: useGetCurrencies,
   useGetResource: useGetCurrency,

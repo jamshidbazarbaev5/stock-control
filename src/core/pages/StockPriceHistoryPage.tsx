@@ -61,7 +61,7 @@ export default function StockPriceHistoryPage() {
   }
 
   const h: any = stockHistory;
-  const cur = h.currency?.short_name || h.currency?.name || 'UZS';
+  const cur = h.currency?.symbol || h.currency?.name || 'UZS';
   const q = h.quantities || {};
   const fin = h.finances || {};
   const fc = h.forecast || {};

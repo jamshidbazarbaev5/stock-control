@@ -100,14 +100,13 @@ interface FormSalePayment {
 }
 
 interface CurrencyRate {
+  id: number;
   created_at: string;
   rate: string;
-  currency_detail: {
-    id: number;
-    name: string;
-    short_name: string;
-    is_base: boolean;
-  };
+  from_currency: number;
+  from_code: string;
+  to_currency: number;
+  to_code: string;
 }
 
 interface SaleFormData {

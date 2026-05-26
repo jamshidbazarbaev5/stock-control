@@ -821,14 +821,14 @@ function StockDetailsAccordion({ stockEntryId }: { stockEntryId: number }) {
                   {formatNumber(stock.quantity_for_history || 0)} {stock.product?.base_unit_name || ''}
                 </td>
                 <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-900">
-                  {stock.currency?.short_name || 'UZS'}
+                  {stock.currency?.symbol || 'UZS'}
                 </td>
                 <td className="px-3 py-3 whitespace-nowrap text-sm font-semibold text-emerald-600">
                   {formatNumber(
-                    stock.currency?.short_name === 'UZS'
+                    stock.currency?.symbol === 'UZS'
                       ? (stock.total_price_in_uz || 0)
                       : (stock.total_price_in_currency || 0)
-                  )} {stock.currency?.short_name || 'UZS'}
+                  )} {stock.currency?.symbol || 'UZS'}
                 </td>
               </tr>
             ))}

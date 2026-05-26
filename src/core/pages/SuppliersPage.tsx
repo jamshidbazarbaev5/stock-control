@@ -15,14 +15,13 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { api } from "../api/client";
 
 interface CurrencyRate {
+  id: number;
   created_at: string;
   rate: string;
-  currency_detail: {
-    id: number;
-    name: string;
-    short_name: string;
-    is_base: boolean;
-  };
+  from_currency: number;
+  from_code: string;
+  to_currency: number;
+  to_code: string;
 }
 import { useGetStores, type Store } from "../api/store";
 import { useTranslation } from "react-i18next";

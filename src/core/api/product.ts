@@ -24,16 +24,48 @@ export interface AttributeValueResponse {
   value: string | number | boolean | number[];
 }
 
+export interface Variant {
+  id?: number | null;
+  sku?: string;
+  barcode?: string;
+  option_values?: number[];
+  selling_price?: string;
+  min_price?: string;
+}
+
+export interface UnitConversion {
+  from_unit: number;
+  to_unit: number;
+  factor: string;
+}
+
+export interface StockLot {
+  variant_index?: number | null;
+  quantity: string;
+  purchase_unit: number;
+  cost_per_unit: string;
+  batch_number?: string;
+  expiry_date?: string | null;
+}
+
+export interface InitialStock {
+  store: number;
+  supplier?: number | null;
+  total_amount?: string;
+  is_debt?: boolean;
+  note?: string;
+  stocks: StockLot[];
+}
+
 export interface Product {
   id?: number;
   base_unit_name?: string;
-  // selling_price?:number;
-  is_imported?:boolean;
+  is_imported?: boolean;
   has_barcode?: boolean;
-  barcode?: string;
-  product_name: string;
+  barcode?: string | null;
+  product_name?: string;
   color?: string;
-  category_write: number;
+  category_write?: number;
   store_write?: number;
   has_color?: boolean;
   measurement?: ProductMeasurement[];
@@ -44,9 +76,9 @@ export interface Product {
     attributes_read?: Attribute[];
     sell_from_stock?: boolean;
   };
-  min_price?: number;
+  min_price?: string | number;
   min_stock?: number;
-  selling_price?: number;
+  selling_price?: string | number;
   selling_price_in_currency?: number | string;
   sell_in_currency_unit?: {
     label: string;
@@ -73,23 +105,40 @@ export interface Product {
   has_metr?: boolean;
   has_shtuk?: boolean;
   base_unit?: number;
-  ikpu?: string;
+  ikpu?: string | null;
   avg_stock_price?: string;
   history?: any;
   available_units?: Array<{
     id: number;
     selling_price?: number;
-
     min_price: number;
     selling_price_in_currency: number;
     short_name: string;
     factor: number;
     is_base: boolean;
   }>;
+
+  // v2 API fields
+  name?: string;
+  sku?: string | null;
+  category?: number | null;
+  category_name?: string;
+  unit?: string;
+  has_variations?: boolean;
+  plu_code?: string;
+  low_stock_threshold?: string;
+  track_expiry?: boolean;
+  track_serial_numbers?: boolean;
+  is_active?: boolean;
+  variants?: Variant[];
+  unit_conversions?: UnitConversion[];
+  initial_stock?: InitialStock;
+  tare_weight?: string;
+  default_shelf_life_days?: number;
 }
 
 // API endpoints
-const PRODUCT_URL = "items/product/";
+const PRODUCT_URL = "api/v2/products/";
 
 // Create product API hooks using the factory function
 export const {

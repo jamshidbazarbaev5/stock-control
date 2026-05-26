@@ -15,13 +15,14 @@ export default function CreateCurrency() {
   const createCurrency = useCreateCurrency();
   
   const [name, setName] = useState('');
-  const [shortName, setShortName] = useState('');
+  const [code, setCode] = useState('');
+  const [symbol, setSymbol] = useState('');
   const [isBase, setIsBase] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!name.trim() || !shortName.trim()) {
+
+    if (!name.trim() || !code.trim() || !symbol.trim()) {
       toast.error(t('messages.error.required_fields'));
       return;
     }
@@ -29,7 +30,8 @@ export default function CreateCurrency() {
     try {
       const formattedData: Currency = {
         name: name.trim(),
-        short_name: shortName.trim(),
+        code: code.trim(),
+        symbol: symbol.trim(),
         is_base: isBase,
       };
 
@@ -60,13 +62,25 @@ export default function CreateCurrency() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="short_name">{t('forms.short_name')} *</Label>
+              <Label htmlFor="code">{t('forms.code')} *</Label>
               <Input
-                id="short_name"
+                id="code"
                 type="text"
-                value={shortName}
-                onChange={(e) => setShortName(e.target.value)}
-                placeholder={t('placeholders.enter_short_name')}
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                placeholder={t('placeholders.enter_code')}
+                required
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="symbol">{t('forms.symbol')} *</Label>
+              <Input
+                id="symbol"
+                type="text"
+                value={symbol}
+                onChange={(e) => setSymbol(e.target.value)}
+                placeholder={t('placeholders.enter_symbol')}
                 required
               />
             </div>

@@ -100,7 +100,7 @@ export default function ExchangeLoansPage() {
             </div>
             {currency && (
               <div className="text-sm text-muted-foreground">
-                {currency.short_name}
+                {currency.symbol}
               </div>
             )}
           </div>
@@ -120,7 +120,7 @@ export default function ExchangeLoansPage() {
             </div>
             {currency && balance && (
               <div className="text-sm text-muted-foreground">
-                {currency.short_name}
+                {currency.symbol}
               </div>
             )}
           </div>
@@ -359,7 +359,7 @@ export default function ExchangeLoansPage() {
               <SelectItem value="all">{t('common.all')}</SelectItem>
               {currencies.map((currency) => (
                 <SelectItem key={currency.id} value={currency.id?.toString() || ''}>
-                  {currency.name} ({currency.short_name})
+                  {currency.name} ({currency.symbol})
                 </SelectItem>
               ))}
             </SelectContent>
@@ -427,13 +427,13 @@ export default function ExchangeLoansPage() {
                   <div className="flex justify-between">
                     <span className="text-gray-600">{t('forms.total_amount')}:</span>
                     <span className="font-medium">
-                      {typeof selectedLoan.total_amount === 'number' ? selectedLoan.total_amount.toLocaleString() : selectedLoan.total_amount} {selectedLoan.currency?.short_name}
+                      {typeof selectedLoan.total_amount === 'number' ? selectedLoan.total_amount.toLocaleString() : selectedLoan.total_amount} {selectedLoan.currency?.symbol}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">{t('forms.remaining_balance')}:</span>
                     <span className="font-medium text-red-600">
-                      {typeof selectedLoan.remaining_balance === 'number' ? selectedLoan.remaining_balance.toLocaleString() : selectedLoan.remaining_balance} {selectedLoan.currency?.short_name}
+                      {typeof selectedLoan.remaining_balance === 'number' ? selectedLoan.remaining_balance.toLocaleString() : selectedLoan.remaining_balance} {selectedLoan.currency?.symbol}
                     </span>
                   </div>
                   <div className="flex justify-between">

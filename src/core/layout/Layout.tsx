@@ -772,8 +772,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                                   className="flex justify-between items-center p-2 bg-muted rounded"
                                 >
                                   <span className="font-medium">
-                                    {rate.currency_detail?.name} (
-                                    {rate.currency_detail?.short_name})
+                                    {rate.from_code} → {rate.to_code}
                                   </span>
                                   <span>{rate.rate}</span>
                                 </div>
@@ -826,7 +825,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                                       key={currency.id}
                                       value={currency.id!.toString()}
                                     >
-                                      {currency.name} ({currency.short_name})
+                                      {currency.name} ({currency.symbol})
                                     </SelectItem>
                                   ))}
                               </SelectContent>

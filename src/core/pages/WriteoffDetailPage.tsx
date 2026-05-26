@@ -182,7 +182,7 @@ export default function WriteoffDetailPage() {
                       {item.stock_read.purchase_unit.short_name}
                     </td>
                     <td className="p-2 sm:p-3 text-xs sm:text-sm">
-                      {item.stock_read.currency.short_name}
+                      {item.stock_read.currency.symbol}
                     </td>
                   </tr>
                 ))}

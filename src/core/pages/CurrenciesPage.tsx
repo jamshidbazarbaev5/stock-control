@@ -21,8 +21,12 @@ const columns = (t: any) => [
     accessorKey: "name",
   },
   {
-    header: t("forms.short_name"),
-    accessorKey: "short_name",
+    header: t("forms.symbol"),
+    accessorKey: "symbol",
+  },
+  {
+    header: t("forms.code"),
+    accessorKey: "code",
   },
   {
     header: t("forms.is_base"),

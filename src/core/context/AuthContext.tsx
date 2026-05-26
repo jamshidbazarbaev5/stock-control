@@ -34,7 +34,13 @@
 
         const response = await api.get("users/me");
         console.log("[AuthContext] User data fetched successfully");
-        return response.data;
+        const userData = response.data;
+        // v2 API returns role as numeric ID + role_name string
+        // Normalize so currentUser.role is the human-readable role name
+        if (typeof userData.role === 'number' && userData.role_name) {
+          userData.role = userData.role_name;
+        }
+        return userData;
       } catch (error) {
         console.error("[AuthContext] Error fetching user data:", error);
 

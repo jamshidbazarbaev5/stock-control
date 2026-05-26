@@ -35,8 +35,7 @@ interface WriteOffItem {
     currency: {
       id: number;
       name: string;
-      short_name: string;
-      is_base: boolean;
+      symbol: string;
     };
     supplier: {
       id: number;

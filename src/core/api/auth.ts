@@ -14,13 +14,13 @@ interface TokenResponse {
 }
 
 // Constants
-const getBaseURL = (): string => {
-  const hostname = window.location.hostname;
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'https://test2.smart-sawda.uz/api/v1/';
-  }
-  return `https://${hostname}/api/v1/`;
-};
+// const getBaseURL = (): string => {
+//   const hostname = window.location.hostname;
+//   if (hostname === 'localhost' || hostname === '127.0.0.1') {
+//     return 'https://test2.smart-sawda.uz/api/v1/';
+//   }
+//   return `https://${hostname}/api/v1/`;
+// };
 const TOKEN_ENDPOINT = 'token/';
 const REFRESH_ENDPOINT = 'token/refresh/';
 const VERIFY_ENDPOINT = 'token/verify/';
@@ -31,7 +31,7 @@ const REFRESH_TOKEN_KEY = 'refresh_token';
 
 // API client
 const authApi = axios.create({
-  baseURL: getBaseURL(),
+  baseURL:  'https:smart.abata.uz/api/v2/',
   headers: {
     'Content-Type': 'application/json',
   },

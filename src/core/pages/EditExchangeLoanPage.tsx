@@ -182,13 +182,13 @@ export default function EditExchangeLoanPage() {
             <div>
               <Label className="text-gray-500">{t('forms.currency')}</Label>
               <p className="text-lg font-medium">
-                {exchangeLoan.currency?.name} ({exchangeLoan.currency?.short_name})
+                {exchangeLoan.currency?.name} ({exchangeLoan.currency?.symbol})
               </p>
             </div>
             <div>
               <Label className="text-gray-500">{t('forms.total_amount')}</Label>
               <p className="text-lg font-medium">
-                {formatCurrency(totalAmount)} {exchangeLoan.currency?.short_name}
+                {formatCurrency(totalAmount)} {exchangeLoan.currency?.symbol}
               </p>
             </div>
             <div>
@@ -202,7 +202,7 @@ export default function EditExchangeLoanPage() {
             <div>
               <Label className="text-gray-500">{t('forms.remaining_balance')}</Label>
               <p className="text-lg font-medium text-red-600">
-                {formatCurrency(remainingBalance)} {exchangeLoan.currency?.short_name}
+                {formatCurrency(remainingBalance)} {exchangeLoan.currency?.symbol}
               </p>
             </div>
             <div>
@@ -285,7 +285,7 @@ export default function EditExchangeLoanPage() {
             <div>
               <Label className="text-gray-500">{t('forms.remaining_balance')}</Label>
               <p className="text-lg font-medium">
-                {formatCurrency(remainingBalance)} {exchangeLoan.currency?.short_name}
+                {formatCurrency(remainingBalance)} {exchangeLoan.currency?.symbol}
               </p>
             </div>
             <div>

@@ -2025,7 +2025,7 @@ export default function CreateStock() {
                                 key={currency.id}
                                 value={String(currency.id)}
                               >
-                                {currency.name} ({currency.short_name})
+                                {currency.name} ({currency.symbol})
                               </SelectItem>
                             ))}
                           </SelectContent>

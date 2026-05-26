@@ -171,7 +171,7 @@ export default function ExchangeLoanPaymentsPage() {
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="h-8 w-8 opacity-80 text-blue-600 dark:text-white" />
                 <Badge variant="secondary" className="border border-blue-100 bg-blue-50 text-blue-700 dark:border-none dark:bg-white/20 dark:text-white">
-                  {loan.currency?.short_name || 'USD'}
+                  {loan.currency?.symbol || 'USD'}
                 </Badge>
               </div>
               <div className="space-y-1">
@@ -259,7 +259,7 @@ export default function ExchangeLoanPaymentsPage() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Оплачено: {paidAmount.toLocaleString()} {loan.currency?.short_name}</span>
+                <span className="text-muted-foreground">Оплачено: {paidAmount.toLocaleString()} {loan.currency?.symbol}</span>
                 <span className="font-semibold">{progressPercent.toFixed(1)}%</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
@@ -312,7 +312,7 @@ export default function ExchangeLoanPaymentsPage() {
                                 : payment.amount}
                             </span>
                             <Badge variant="outline" className="gap-1">
-                              {loan.currency?.short_name || 'USD'}
+                              {loan.currency?.symbol || 'USD'}
                             </Badge>
                           </div>
                           {payment.notes && (
@@ -360,13 +360,13 @@ export default function ExchangeLoanPaymentsPage() {
                   <div className="flex justify-between">
                     <span className="text-gray-600">{t('forms.total_amount')}:</span>
                     <span className="font-medium">
-                      {typeof total === 'number' ? total.toLocaleString() : total} {loan.currency?.short_name}
+                      {typeof total === 'number' ? total.toLocaleString() : total} {loan.currency?.symbol}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">{t('forms.remaining_balance')}:</span>
                     <span className="font-medium text-red-600">
-                      {typeof remaining === 'number' ? remaining.toLocaleString() : remaining} {loan.currency?.short_name}
+                      {typeof remaining === 'number' ? remaining.toLocaleString() : remaining} {loan.currency?.symbol}
                     </span>
                   </div>
                   <div className="flex justify-between">

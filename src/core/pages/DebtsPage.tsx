@@ -79,7 +79,7 @@ export default function DebtsPage() {
   const massPayment = useMassPayment();
 
   // Get the latest USD rate from currency rates
-  const { data: currencyRates } = useQuery<Array<{ id: number; rate: string; currency_detail: any }>>({
+  const { data: currencyRates } = useQuery<Array<{ id: number; rate: string; from_currency: number; from_code: string; to_currency: number; to_code: string; created_at: string }>>({
     queryKey: ["currency-rates"],
     queryFn: async () => {
       const response = await api.get("/currency/rates/");

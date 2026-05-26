@@ -92,7 +92,7 @@ const columns = (
   },
   {
     header: t("table.name"),
-    accessorKey: "product_name",
+    accessorKey: (row: any) => row.name || row.product_name || "-",
   },
   {
     header: t("table.category"),
@@ -333,7 +333,7 @@ export default function ProductsPage() {
     }
     setIsSearchingProducts(true);
     try {
-      const response = await api.get(`items/product/?product_name=${query}`);
+      const response = await api.get(`api/v2/products/?search=${query}`);
       const results = response.data.results || response.data || [];
       setProductSearchResults(results);
     } catch (error) {
@@ -368,7 +368,7 @@ export default function ProductsPage() {
     if (!product.id) return;
     setAssigningProductId(product.id);
     try {
-      await api.patch(`items/product/${product.id}/`, {
+      await api.patch(`api/v2/products/${product.id}/`, {
         barcode: scannedBarcode,
       });
       toast.success("Штрих-код успешно присвоен товару");
@@ -391,7 +391,7 @@ export default function ProductsPage() {
         non_zero: productTab === "with_quantity" ? 1 : 0,
         is_imported: false
       }),
-      ...(searchTerm && { product_name: searchTerm }),
+      ...(searchTerm && { search: searchTerm }),
       ...(selectedCategory && { category: selectedCategory }),
       ...(selectedMeasurement && { measurement: selectedMeasurement }),
       ...(hasPrice !== "all" && { has_price: hasPrice === "true" }),
@@ -1297,10 +1297,10 @@ export default function ProductsPage() {
                     {productSearchResults.map((product) => (
                       <TableRow key={product.id}>
                         <TableCell className="font-medium">
-                          {product.product_name}
+                          {product.name || product.product_name || "-"}
                         </TableCell>
                         <TableCell>
-                          {product.category_read?.category_name || "—"}
+                          {product.category_name || product.category_read?.category_name || "—"}
                         </TableCell>
                         <TableCell className="font-mono text-sm">
                           {product.barcode || "—"}

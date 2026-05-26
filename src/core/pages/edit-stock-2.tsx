@@ -801,7 +801,7 @@ export default function EditStock() {
       required: true,
       options: currencies.map((currency) => ({
         value: currency.id,
-        label: `${currency.name} (${currency.short_name})`,
+        label: `${currency.name} (${currency.symbol})`,
       })),
       isLoading: currenciesLoading,
     },
